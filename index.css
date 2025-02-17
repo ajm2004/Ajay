@@ -66,6 +66,7 @@ html {
     }
 }
 
+
 body {
     font-size: var(--font-size-small);
     font-family: var(--font-stack);
@@ -405,7 +406,7 @@ body:not(.user-is-tabbing) a:focus {
 
 .header {
     background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4)), 
-        url('./images/header.jpg');
+        url('./images/black.jpg');
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -509,25 +510,143 @@ body:not(.user-is-tabbing) a:focus {
 /* ----- Clients ----- */
 /* --------------------------------------- */
 
-.client__logos {
+/* .client__logos {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     filter: invert(100%) grayscale(100%) opacity(.8);
+    gap: 35px;
 }
 
 .client__logo {
-    height: 6.5rem;
-    max-width: 18rem;
+    height: 10.5rem;
+    max-width: 22rem;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
-@media(max-width: 1240px) {
+.client__logo:hover {
+    transform: scale(1.1); 
+    filter: invert(100%) grayscale(0%) opacity(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+}
+
+@media (max-width: 1240px) {
     .client__logos {
-        overflow-x: scroll;
+        overflow-x: auto;
         padding: var(--gutter-normal);
+        -ms-overflow-style: none; 
+        scrollbar-width: none; 
+    }
+
+    .client__logos::-webkit-scrollbar {
+        display: none; 
     }
 
     .client__logo:not(:last-of-type) {
         margin-right: var(--gutter-medium);
+    }
+} */
+
+.experience__container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Space between each company entry */
+    align-items: center; /* Centers everything */
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.experience__item {
+    display: flex;
+    align-items: center; /* Ensures text and images align */
+    gap: 50px;
+    width: 90%; /* Centering with max width */
+    justify-content: center; /* Ensures text stays next to the image */
+    text-align: left; /* Align text properly */
+}
+
+.client__logo {
+    height: 14rem; /* Ensures logos are the same height */
+    max-width: 14rem;
+    padding: 15px;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.client__logo img {
+    width: 100%;
+    height: auto;
+}
+
+.client__logo:hover {
+    transform: scale(1.15);
+    filter: invert(100%) grayscale(0%) opacity(1) drop-shadow(0 0 20px rgba(255, 255, 255, 0.9));
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+.experience__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding: 15px;
+    border-left: 4px solid rgba(255, 255, 255, 0.5);
+    min-height: 14rem;
+    width: 100%; /* Ensures text box is consistent */
+}
+
+.experience__details h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.experience__details p {
+    font-size: 1.5rem;
+    color: #eee;
+    margin: 8px 0;
+}
+
+/* Responsive Fix */
+@media (max-width: 900px) {
+    .experience__item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .experience__details {
+        max-width: 100%;
+        border-left: none;
+        border-top: 4px solid rgba(255, 255, 255, 0.5);
+        padding-top: 20px;
+        align-items: center;
+        min-height: unset;
+    }
+
+    .client__logo {
+        height: 12rem;
+        max-width: 12rem;
+    }
+
+    .experience__details h3 {
+        font-size: 2rem;
+    }
+
+    .experience__details p {
+        font-size: 1.3rem;
     }
 }
 
@@ -569,6 +688,16 @@ body:not(.user-is-tabbing) a:focus {
 
 .contact__info {
     max-width: var(--container-medium-width);
+    display: flex;
+    gap: 10px; /* Adjust space between buttons */
+    justify-content: center; /* Center buttons */
+    flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+.contact__info .btn {
+    flex: 1; /* Makes both buttons equal width */
+    text-align: center; /* Centers text inside button */
+    min-width: 150px; /* Prevents buttons from being too small */
 }
 
 /* --------------------------------------- */
@@ -593,6 +722,12 @@ body:not(.user-is-tabbing) a:focus {
 
 .footer__social-image {
     height: 4rem;
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.footer__social-image:hover {
+    transform: scale(1.2); /* Increase size on hover */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
 .footer__github-buttons {
@@ -604,6 +739,11 @@ body:not(.user-is-tabbing) a:focus {
     height: 2.5rem;
     width: 84px;
     transform: translateY(3px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer__github-buttons iframe:hover {
+    transform: scale(1.1) translateY(3px);
 }
 
 @media(max-width: 500px) {
