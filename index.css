@@ -430,20 +430,10 @@ body:not(.user-is-tabbing) a:focus {
 @media(max-width: 500px) {
     .header {
         text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .header__text {
-        position: static;
-        transform: none; /* Remove translation to avoid skew */
-        text-align: center;
     }
 
     .header__text p {
         transform: scale(.8);
-        margin: 0 auto;
     }
 }
 
